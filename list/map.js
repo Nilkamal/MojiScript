@@ -6,6 +6,6 @@ const asyncMapReducer = func => acc => x =>
   call (val => (acc.push(val), acc)) (func (x))
 
 // map :: Function -> Iterable -> Array
-const map = func => reduceWhile (null) (asyncMapReducer (func)) ([])
+const map = func => iterable => reduceWhile (null) (asyncMapReducer (func)) ([]) (iterable)
 
 module.exports = map
