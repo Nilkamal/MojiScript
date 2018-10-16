@@ -1,8 +1,8 @@
 /* eslint-disable */
-const ensureExecutable = require('../_internal/ensureExecutable')
+const maybeExec = require('../_internal/maybeExec')
 
 const pipe = (funcs = []) => value => funcs.reduce (
-  (acc, func) => acc.then (ensureExecutable (func)),
+  (acc, func) => acc.then (maybeExec (func)),
   Promise.resolve (value)
 )
 
